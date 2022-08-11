@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginScreen">
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.udacity.shoestore.ui.fragments.LoginScreen"
+        android:label="LoginScreen"
+        tools:layout="@layout/login_screen">
+        <action
+            android:id="@+id/action_loginScreen_to_welcomeScreen"
+            app:destination="@id/welcomeScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="com.udacity.shoestore.ui.fragments.WelcomeScreen"
+        android:label="WelcomeScreen"
+        tools:layout="@layout/welcome_screen">
+        <action
+            android:id="@+id/action_welcomeScreen_to_instructionScreen"
+            app:destination="@id/instructionScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/welcomeScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionScreen"
+        android:name="com.udacity.shoestore.ui.fragments.InstructionScreen"
+        android:label="InstructionScreen"
+        tools:layout="@layout/instruction_screen">
+        <action
+            android:id="@+id/action_instructionScreen_to_listingScreen"
+            app:destination="@id/listingScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/instructionScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/listingScreen"
+        android:name="com.udacity.shoestore.ui.fragments.ListingScreen"
+        android:label="ListingScreen"
+        tools:layout="@layout/listing_screen">
+        <action
+            android:id="@+id/action_listingScreen_to_detailScreen"
+            app:destination="@id/detailScreens"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="shoe"
+            android:defaultValue="@null"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_listingScreen_to_loginScreen"
+            app:destination="@id/loginScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailScreens"
+        android:name="com.udacity.shoestore.ui.fragments.DetailScreens"
+        android:label="DetailScreens"
+        tools:layout="@layout/detail_screens">
+        <action
+            android:id="@+id/action_detailScreens_to_listingScreen"
+            app:destination="@id/listingScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+</navigation>
