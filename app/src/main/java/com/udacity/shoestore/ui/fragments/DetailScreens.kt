@@ -7,13 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailScreensBinding
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.viewmodel.ShoeViewModel
 
 
 class DetailScreens : Fragment() {
+
+    private val shoeViewModel: ShoeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +33,7 @@ class DetailScreens : Fragment() {
         binding.shoe = Shoe()
 
         binding.addBtn.setOnClickListener {
-            sendShoe(it, binding)
+            addShoe(it, binding)
         }
 
         binding.cancelBtn.setOnClickListener {
@@ -39,12 +43,12 @@ class DetailScreens : Fragment() {
         return binding.root
     }
 
-    private fun sendShoe(view: View, binding: DetailScreensBinding) {
+    private fun addShoe(view: View, binding: DetailScreensBinding) {
         if (binding.nameEditText.text.isEmpty() || binding.sizeEditText.text.isEmpty()) {
             Toast.makeText(context, "required name and size field", Toast.LENGTH_SHORT).show()
         } else {
             val action = DetailScreensDirections.actionDetailScreensToListingScreen()
-            action.shoe = binding.shoe
+            binding.shoe?.let { shoeViewModel.addShoe(it) }
             Navigation.findNavController(view).navigate(action)
         }
 

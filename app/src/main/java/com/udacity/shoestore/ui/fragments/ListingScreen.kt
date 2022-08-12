@@ -34,9 +34,6 @@ class ListingScreen : Fragment() {
         setHasOptionsMenu(true)
 
         val shoeViewModel: ShoeViewModel by activityViewModels()
-        val args = ListingScreenArgs.fromBundle(requireArguments())
-
-        args.shoe?.let { shoeViewModel.addShoe(it) }
 
         shoeViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoes ->
             for (shoe in shoes) {
