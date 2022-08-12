@@ -1,65 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
+    <!-- i used LinearLayout since its simple login page hs (2) textview,edittext and buttons
+    -->
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         tools:context=".ui.fragments.LoginScreen">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/email"
-            android:textColor= "@color/colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:layout_margin="10dp"
+            android:text="@string/email"
             android:textAlignment="center"
-            />
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:inputType="textEmailAddress"
             android:hint="@string/email"
-            />
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:text="@string/password"
             android:textAlignment="center"
-            android:textColor= "@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="@string/password" />
+            android:textStyle="bold" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:inputType="textPassword"
             android:hint="@string/password"
-            />
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/login"
-            />
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/signupBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/signUp"
-            />
+            android:text="@string/signUp" />
 
     </LinearLayout>
 </layout>

@@ -11,6 +11,10 @@
 
     </data>
 
+    <!-- i used ConstraintLayout since i need shoeCompany in right of shoeName
+       that's easily to do with ConstraintLayout rather than LinearLayout
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
