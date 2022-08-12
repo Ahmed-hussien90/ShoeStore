@@ -40,7 +40,6 @@ class ListingScreen : Fragment() {
 
         shoeViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoes ->
             for (shoe in shoes) {
-                Timber.tag("MAIN").i(shoe.name)
                 var viewItem = ShoeItemBinding.inflate(layoutInflater)
                 viewItem.shoeItem = shoe
                 binding.listLayout.addView(viewItem.root)

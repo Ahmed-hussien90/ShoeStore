@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
     <!-- used ConstraintLayout since this layout is Complicated
     and has 5 textview , 4 edittext and 2 buttons need to use ConstraintLayout-->
 
@@ -59,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:ems="10"
+            android:text="@={`` + shoe.size}"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.777"
@@ -71,6 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="148dp"
             android:ems="10"
+            android:text="@={shoe.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.786"
             app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -82,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
+            android:text="@={shoe.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.676"
             app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -93,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
+            android:text="@={shoe.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.711"
             app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -115,6 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
+            android:onClick=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.355"

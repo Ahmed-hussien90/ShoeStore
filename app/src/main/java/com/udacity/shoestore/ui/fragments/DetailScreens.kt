@@ -24,6 +24,10 @@ class DetailScreens : Fragment() {
             inflater,
             R.layout.detail_screens, container, false
         )
+
+        binding.lifecycleOwner = this
+        binding.shoe = Shoe()
+
         binding.addBtn.setOnClickListener {
             sendShoe(it, binding)
         }
@@ -39,14 +43,8 @@ class DetailScreens : Fragment() {
         if (binding.nameEditText.text.isEmpty() || binding.sizeEditText.text.isEmpty()) {
             Toast.makeText(context, "required name and size field", Toast.LENGTH_SHORT).show()
         } else {
-            var shoe = Shoe(
-                binding.nameEditText.text.toString(),
-                binding.sizeEditText.text.toString().toDouble(),
-                binding.companyEditText.text.toString(),
-                binding.descriptionEditText.text.toString()
-            )
             val action = DetailScreensDirections.actionDetailScreensToListingScreen()
-            action.shoe = shoe
+            action.shoe = binding.shoe
             Navigation.findNavController(view).navigate(action)
         }
 
